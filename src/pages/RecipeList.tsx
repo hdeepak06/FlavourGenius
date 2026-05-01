@@ -79,7 +79,7 @@ export default function RecipeList() {
         <div className="space-y-4 flex-1 max-w-2xl">
           <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">Your FlavorBook</h1>
           <form onSubmit={handleSmartSearch} className="relative group">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-orange-500 transition-colors">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-red-600 transition-colors">
               <Sparkles size={20} />
             </div>
             <input 
