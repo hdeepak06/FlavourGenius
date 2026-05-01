@@ -1,0 +1,13 @@
+{
+  "name": "FlavorGenius AI",
+  "description": "An AI-powered recipe discovery and generation platform that creates personalized meals, optimizes ingredients, and offers smart search capabilities.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "AI Recipe Generation",
+    "Natural Language Recipe Search",
+    "Personalized Recommendations"
+  ]
+}

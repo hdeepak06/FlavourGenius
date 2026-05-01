@@ -1,0 +1,71 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User account information and preferences",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "bio": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Recipe": {
+      "title": "Recipe",
+      "description": "Recipe details including ingredients, steps, and AI-generated metadata",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "ingredients": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "steps": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "cookingTime": { "type": "integer", "description": "Time in minutes" },
+        "price": { "type": "number", "description": "Estimated cost in INR" },
+        "image": { "type": "string" },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "authorId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "description": { "type": "string" },
+        "difficulty": { "type": "string", "enum": ["Easy", "Medium", "Hard"] }
+      },
+      "required": ["title", "ingredients", "steps", "authorId"]
+    },
+    "UserAction": {
+      "title": "User Interaction",
+      "description": "Recording user interactions with recipes for recommendations",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "recipeId": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "type": { "type": "string", "enum": ["view", "like", "create"] }
+      },
+      "required": ["userId", "recipeId", "timestamp", "type"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "recipes/{recipeId}": {
+      "schema": "Recipe",
+      "description": "Public and user-created recipes"
+    },
+    "users/{userId}/history/{actionId}": {
+      "schema": "UserAction",
+      "description": "User interaction history"
+    }
+  }
+}
