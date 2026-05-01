@@ -7,8 +7,8 @@ import firebaseConfig from "../../firebase-applet-config.json";
 
 const app = initializeApp(firebaseConfig);
 
-// Use (default) for testing since flavor-genius-db might not be provisioned correctly or targeted by deploy_firebase
-export const db = getFirestore(app, "(default)");
+// Use the specific databaseId from config
+export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 
 export const auth = getAuth(app);
 
